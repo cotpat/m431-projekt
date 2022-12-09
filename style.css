@@ -1,0 +1,29 @@
+body{
+ background-size: cover
+}
+
+body.thousand
+{
+background-image: url("assets/rem.jpg")
+}
+
+
+body.tenthousand
+{
+background-image: url("assets/anemone.jpeg")
+}
+
+body.hundredthousand
+{
+background-image: url("assets/morgiana.png")
+}
+
+body.onemillion
+{
+background-image: url("assets/konosuba.jpg")
+}
+
+body.tenmillion
+{
+background-image: url("assets/faye_valentine.jpeg")
+}
