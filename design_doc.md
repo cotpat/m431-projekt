@@ -16,5 +16,8 @@ Upgrades:
 - Verbindung: Hosts gleichzeitig hacken
 - Sniffing: Verkürzt Wartezeit zwischen neuen Zielen
 
-
+## Ressourcen, Erzeugung
+Ressource | Quelle | Rate
+--- | --- | ---
+Tier 1 (Intelligence) | passive Generierung durch gehackte Systeme | 1/s/System
 
