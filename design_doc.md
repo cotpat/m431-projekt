@@ -19,5 +19,5 @@ Upgrades:
 ## Ressourcen, Erzeugung
 Ressource | Quelle | Rate
 --- | --- | ---
-Tier 1 (Intelligence) | passive Generierung durch gehackte Systeme | $\frac{1/s/}{System}$
+Tier 1 (Intelligence) | passive Generierung durch gehackte Systeme | $\frac{1/s}{System}$
 
