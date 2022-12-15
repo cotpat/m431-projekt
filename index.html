@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Incremental Network Game</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Black HATS</h1>
+
+<p>Points: <span id="points"></span> Multiplier: <span id="multiplier"></span></p>
+
+
+<p>
+	<img src="assets/router.png" width="100", height="100">
+	<img src="assets/firewall.png" width="100", height="100">  
+	<img src="assets/server.png" width="100", height="100">
+</p>
+
+<p>
+	Routers: <span id="routers"></span> - 
+	Firewalls: <span id="firewalls"></span> - 
+	Servers: <span id="servers"></span>
+</p>
+<!-- click button to increment points -->
+<button onclick="incrementPoints()">Click for Points!</button>
+<!-- display available upgrades -->
+<h2>Upgrades</h2>
+<ul id="upgrades">
+	<!-- list of upgrades will be generated here -->
+</ul>
+<script>
+    // initial points
+    let points = 0;
+
+    // initial counts of routers, firewalls, and servers
+    let routerCount = 0;
+    let firewallCount = 0;
+    let serverCount = 0;
+
+    // upgrade data
+    let upgrades = [
+    {
+		name: "Faster Router",
+		cost: 100,
+		multiplier: 2,
+		count: 0,
+		type: "router"
+	},
+	{
+		name: "Additional Server",
+		cost: 500,
+		multiplier: 5,
+		count: 0,
+		type: "server"
+	},
+	{
+		name: "Advanced Firewall",
+		cost: 1000,
+		multiplier: 10,
+		count: 0,
+		type: "firewall"
+	},
+	{
+		name: "Optimized Network",
+		cost: 10000,
+		multiplier: 100,
+		count: 0,
+		type: "router"
+	},
+	{
+		name: "Cloud Computing",
+		cost: 50000,
+		multiplier: 500,
+		count: 0,
+		type: "server"
+	},
+	{
+		name: "Encrypted Network",
+		cost: 100000,
+		multiplier: 1000,
+		count: 0,
+		type: "firewall"
+	}
+];
+
+// increment points every second
+setInterval(function() {
+	points += 1 * getMultiplier();
+	updatePoints();
+	updateCounter();
+}, 1000);
+
+
+// generate upgrade buttons
+let upgradeList = document.getElementById("upgrades");
+for (let i = 0; i < upgrades.length; i++) {
+	let upgrade = upgrades[i];
+	let li = document.createElement("li");
+	li.innerHTML = `
+		${upgrade.name}: ${upgrade.cost} points - 
+		<button onclick="buyUpgrade(${i})">Buy</button>
+	`;
+	upgradeList.appendChild(li);
+}
+
+// increment points when button is clicked
+function incrementPoints() {
+	points += 1 * getMultiplier();
+	console.log(getMultiplier());
+	updatePoints();
+}
+
+// calculate total multiplier from purchased upgrades
+function getMultiplier() {
+	let multiplier = 1;
+	for (let i = 0; i < upgrades.length; i++) {
+		let upgrade = upgrades[i];
+		multiplier += (upgrade.multiplier * upgrade.count);
+	}
+	return multiplier;
+}
+
+
+// purchase an upgrade
+function buyUpgrade(index) {
+let upgrade = upgrades[index];
+if (points >= upgrade.cost) {
+points -= upgrade.cost;
+upgrade.count++;
+updatePoints();
+updateCounter();
+}
+}
+
+// update points display
+function updatePoints() {
+document.getElementById("points").innerHTML = points;
+document.getElementById("multiplier").innerHTML = getMultiplier();
+let buttons = document.getElementById("upgrades").getElementsByTagName("button");
+for (let i = 0; i < buttons.length; i++) {
+let button = buttons[i];
+if (points >= upgrades[i].cost) {
+button.disabled = false;
+} else {
+button.disabled = true;
+}
+}
+}
+
+// update counters for routers, firewalls, and servers
+function updateCounter() {
+routerCount = 0;
+firewallCount = 0;
+serverCount = 0;
+for (let i = 0; i < upgrades.length; i++) {
+let upgrade = upgrades[i];
+if (upgrade.type === "router") {
+routerCount += upgrade.count;
+} else if (upgrade.type === "firewall") {
+firewallCount += upgrade.count;
+} else if (upgrade.type === "server") {
+serverCount += upgrade.count;
+}
+}
+document.getElementById("routers").innerHTML = routerCount;
+document.getElementById("firewalls").innerHTML = firewallCount;
+document.getElementById("servers").innerHTML = serverCount;
+}
+
+// start game
+updatePoints();
+updateCounter();
+</script>
+</body>
+</html>
