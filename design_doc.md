@@ -6,8 +6,6 @@ Konzept des Spiels ist eine KI-Singularität, die sich nach und nach durch die S
 Die Einverleibung weiterer Systeme wird immer schwieriger. Das motiviert den Spieler dazu, das Spiel neu zu starten, damit er auf die Ressourcen der *prestige layer* zugreifen, die KI damit verbessern kann und somit weiter fortschreiten kann als in der letzten Runden.
 
 ## Core Gameplay
-
-
 ### Ressourcen, Erzeugung
 Ressource | Quelle | Rate
 --- | --- | ---
@@ -16,4 +14,6 @@ Tier 2 (Influence) | Generierung durch gehacktes Class C-Netz | $\frac{1}{Class
 Tier 3 (Malevolence) | Generierung durch gehacktes Class B-Netz | $\frac{1}{Class\ B}$
 Tier 4 (Violence) | Generierung durch gehacktes Class A-Netz | $\frac{1}{Class\ A}$
 
-### Systeme und Hacken
+### Systeme und Hacken
+Die Hauptaktion des Spiels, welche automatisch vor sich geht, ist das Hacken von Systemen bzw. von Hosts eines Netzwerks.
+Dies geschieht analog zu einem Kampf in einem RPG, aber vereinfacht. Systeme besitzen eine Ressource `health`, "Security" genannt, welche durch den Wert `attack` der KI ("Exploits") in der Rate $attack*s^{-1}$ 
