@@ -14,6 +14,8 @@ Tier 2 (`Influence`) | Generierung durch gehacktes Class C-Netz | $\frac{1}{Clas
 Tier 3 (`Malevolence`) | Generierung durch gehacktes Class B-Netz | $\frac{1}{Class\ B}$
 Tier 4 (`Violence`) | Generierung durch gehacktes Class A-Netz | $\frac{1}{Class\ A}$
 
+Die Ressourcen 2-4 werden nicht direkt ausbezahlt, sondern sind erst nach einem Reset erhältlich. Dies wird weiter unten näher beschrieben.
+
 ### Systeme und Hacken
 Die Hauptaktion des Spiels, welche automatisch vor sich geht, ist das Hacken von Systemen bzw. von Hosts eines Netzwerks. Das Spiel startet mit einem einzigen gehackten System. Ziel ist das Hacken von allen Systeme, die im classful network-System abgebildet werden können:
 
@@ -30,4 +32,12 @@ Ist `health` eines Systems bei 0 angekommen, geschieht folgendes:
     - Gibt es noch ungehackte Hosts im selben Class A/B/C-Netzwerk, wird dieses zum Ziel
     - War das gehackte System das letzte eines gegebenen Netzwerks und gibt es noch ungehackte Netzwerke derselben Klasse, folgt ein System in einem neuen Netzwerk derselben Klasse und es wird eine Ressourcenpunkt gemäss Ressourcentabelle vergeben
     - Stehen nach Abschluss des Systems keine Netzwerke derselben Klasse mehr zur Verfügung, folgt ein Netzwerk der nächsthöheren Klasse
-  - `health` des nächsten Systems wird mit `1.1` potenziert. Die Progression von `health` folgt also der Formel $health = 10^{1+\frac{x-1}{10}}$, wobei `x` die Anzahl gehackter Systeme ist und zu Beginn des Spiels `x = 1` gilt.
+  - `health` des nächsten Systems wird mit `1.1` potenziert. `health` eines gegebenen Systems ist also $health = 10^{1+\frac{n-1}{10}}$, wobei `n` die Anzahl gehackter Systeme ist und zu Beginn des Spiels `n = 1` gilt.
+
+### Eigenschaften der KI, Upgrades und Resets
+Die exponentielle Vermehrung von `health` bedeutet, dass der Fortschritt an Systemen beim Hacken schnell abflacht. Der Spieler muss über `upgrades` die Geschwindigkeit vergrössern, um das Ziel erreichbar zu machen. Diese Upgrades werden mit den oben beschriebenen Ressourcen gekauft.
+
+#### Upgrades mit Ressource 1
+Upgrade | Beschreibung | Rate | Kosten
+--- | --- | --- | ---
+`compute pooling` | vergrössert `attack` in Abhängigkeit von `n` | 
