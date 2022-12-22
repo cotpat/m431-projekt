@@ -19,7 +19,7 @@ Die Hauptaktion des Spiels, welche automatisch vor sich geht, ist das Hacken von
 
 Class | Anzahl Netzwerke | brauchbare Hosts pro Netzwerk | Total in Class
 --- | --- | --- | ---
-Class A | $2^7 = 128$ | $2^24 - 2 = 16'777'214 | 2'147'483'392
+Class A | $2^7 = 128$ | $2^24 - 2 = 16'777'214$ | 2'147'483'392
 
 Dies geschieht analog zu einem Kampf in einem RPG, aber vereinfacht. Systeme besitzen eine Ressource `health`, "Security" genannt, welche durch den Wert `attack` der KI ("Exploits") in der Rate $attack*s^{-1}$. `health` des ersten Systems ist `10`.
 Ist `health` eines Systems bei 0 angekommen, geschieht folgendes:
