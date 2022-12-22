@@ -3,15 +3,13 @@
 <head>
 	<title>Incremental Network Game</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="stylesheet" href="Treant.css" type="text/css"/>
-	<script src="jquery-3.6.1.min.js"></script>
 </head>
 <body>
     <h1>Black HATS</h1>
 
 <p>Points: <span id="points"></span> Multiplier: <span id="multiplier"></span></p>
 
-<div id="tree-simple" style="width:335px; height: 160px"> </div>
+
 <p>
 	<img src="assets/router.png" width="100", height="100">
 	<img src="assets/firewall.png" width="100", height="100">  
@@ -30,12 +28,7 @@
 <ul id="upgrades">
 	<!-- list of upgrades will be generated here -->
 </ul>
-
-<script src="vendor/raphael.js"></script>
-<script src="Treant.js"></script>
-
 <script>
-	
     // initial points
     let points = 0;
 
@@ -273,19 +266,6 @@ if (points >= upgrades[i].cost) {
 button.disabled = true;
 }
 }
-
-if (points != 0 && points % 100 == 0){
-	let r = (Math.random() + 1).toString(36).substring(7);
-	this[r+'_count'] = {
-		parent: second_child,
-		text: {name: "dini muater"}
-	};
-	simple_chart_config.push(this[r+'_count']);
-	console.log(simple_chart_config)
-	console.log("test")
-	var my_chart = new Treant(simple_chart_config);
-	var chart = new Treant(simple_chart_config);
-}
 }
 
 // update counters for routers, firewalls, and servers
@@ -306,34 +286,8 @@ serverCount += upgrade.count;
 document.getElementById("routers").innerHTML = routerCount;
 document.getElementById("firewalls").innerHTML = firewallCount;
 document.getElementById("servers").innerHTML = serverCount;
-
-
 }
 
-config = {
-    container: "#tree-simple"
-};
-parent_node = {
-    text: { name: "Parent node" }
-};
-first_child = {
-    parent: parent_node,
-    text: { name: "First child" }
-};
-second_child = {
-    parent: parent_node,
-    text: { name: "Second child" }
-};
-simple_chart_config = [
-    config, parent_node,
-    first_child, second_child
-];
-
-
-var my_chart = new Treant(simple_chart_config);
-var chart = new Treant(simple_chart_config);
-
-console.log(simple_chart_config);
 // start game
 updatePoints();
 updateCounter();
